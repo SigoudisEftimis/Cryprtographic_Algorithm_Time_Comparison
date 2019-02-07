@@ -5,33 +5,24 @@ import random
 import time
 import matplotlib.pyplot
 
-
-
-
 class cryptography_algorithm(object):
 
     def __init__(self,plaintext,cybertext):
         self.plaintext =  plaintext 
         self.cybertext = cybertext
 
-
-    
     def encryption(self):
          pln = self.str2lst(self.plaintext)
          cphr =self.R_function(pln,True)
          self.cybertext = self.lst2str(cphr)
          
-         
-      
     def decryption(self):
          cphr = self.str2lst(self.cybertext)
          pln = self.R_function(cphr,False)
          self.plaintext = self.lst2str(pln)
 
-
     def R_Function(self):
         return 0
-
 
     # The function str2lst accepts a string  and returns its arithmetic coding to ASCI
 
@@ -44,10 +35,6 @@ class cryptography_algorithm(object):
          return [ord(x) - 65 for x in string]
 
 
-
-
-        
-
 class asymetric_algorithm(cryptography_algorithm):
 
     def __init__(self, plaintext, cybertext, public_key, private_key): 
@@ -56,9 +43,6 @@ class asymetric_algorithm(cryptography_algorithm):
 
                 # invoking the __init__ of the parent class  
                 cryptography_algorithm.__init__(self, plaintext, cybertext)  
-
-
-
 
 
 class symetric_algorithm(cryptography_algorithm):
@@ -70,9 +54,6 @@ class symetric_algorithm(cryptography_algorithm):
 
 
      
-
-
-
 class Shift_Chipher(symetric_algorithm):
     
 
@@ -116,16 +97,12 @@ class Affine_Chipher(symetric_algorithm):
 
 class Subsistition_Chipher(symetric_algorithm):
     
-     
-
-
+    
      def __init__(self, plaintext, cybertext, public_key):
            # invoking the __init__ of the parent class 
            symetric_algorithm.__init__(self,plaintext,cybertext,public_key)
 
-                  
-    
-
+                 
      def R_function(self,text,encrypt):
 
            alphabet = 'abcdefghijklmnopqrstuvwxyz.,! '
@@ -161,19 +138,9 @@ class RSA(asymetric_algorithm):
                 
            return txt
            
-           
-
-
-
-
-
-             
-    
+ 
 
 def main():
-
-    
-    
 
     message =str(input("Enter the message : "))
     handler = Handler(message,[])
@@ -181,14 +148,7 @@ def main():
     handler.printResults()
    
     
-  
-   
-    
-
     return
-
-
-
 
 class Handler():
      
